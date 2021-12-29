@@ -15,4 +15,4 @@ const chalk = require('chalk')
 //console.log(validator.isEmail('jir212singh.com')) // false
 
 
-console.log(chalk.green('Success!'))
+console.log(chalk.red('Error!'))
