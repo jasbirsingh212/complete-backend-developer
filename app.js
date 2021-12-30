@@ -27,8 +27,20 @@ const { hideBin } = require('yargs/helpers')
 yargs(hideBin(process.argv)).command({
     command:'add',
     describe:'Adding command',
-    handler:function(){
-        console.log('Adding notes')
+    builder: {
+        title: {
+            describe: 'Note title',
+            demandOption: true,
+            type: 'string'
+        },
+        body: {
+            describe: 'Note body',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler:function(argv){
+        console.log('Adding notes '+ JSON.stringify(argv))
     }
 }).parse()
 
@@ -37,8 +49,15 @@ yargs(hideBin(process.argv)).command({
 yargs(hideBin(process.argv)).command({
     command:'remove',
     describe:'remove command',
-    handler:function(){
-        console.log('removing notes')
+    builder: {
+        title: {
+            describe: 'Add title of note to be removed ',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler:function(argv){
+        console.log('removing notes ' + JSON.stringify(argv))
     }
 }).parse()
 
@@ -47,8 +66,15 @@ yargs(hideBin(process.argv)).command({
 yargs(hideBin(process.argv)).command({
     command:'read',
     describe:'Read command',
-    handler:function(){
-        console.log('Reading notes')
+    builder: {
+        title: {
+            describe: 'Add title of note to be removed ',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler:function(argv){
+        console.log('Reading notes ' +  JSON.stringify(argv))
     }
 }).parse()
 
@@ -58,7 +84,7 @@ yargs(hideBin(process.argv)).command({
 yargs(hideBin(process.argv)).command({
     command:'list',
     describe:'Listing command',
-    handler:function(){
-        console.log('Listing notes')
+    handler:function(argv){
+        console.log('Listing notes ')
     }
 }).parse()
