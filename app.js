@@ -5,7 +5,7 @@
 //const chalk = require('chalk')
 const yargs = require('yargs')
 const { hideBin } = require('yargs/helpers')
-//const { getNotes } = require('./notes')
+const { addNote, readNote, removeNote, listNotes } = require('./notes')
 //fs.writeFileSync('jassi.txt', 'lal la al lala laa');
 //fs.appendFileSync('note.pdf', 'I am starting backend development!')
 
@@ -39,9 +39,7 @@ yargs(hideBin(process.argv)).command({
             type: 'string'
         }
     },
-    handler:function(argv){
-        console.log('Adding notes '+ JSON.stringify(argv))
-    }
+    handler:(argv) => addNote(argv.title, argv.body)
 }).parse()
 
 
@@ -56,9 +54,7 @@ yargs(hideBin(process.argv)).command({
             type: 'string'
         }
     },
-    handler:function(argv){
-        console.log('removing notes ' + JSON.stringify(argv))
-    }
+    handler:(argv) => removeNote(argv.title)
 }).parse()
 
 
@@ -73,9 +69,7 @@ yargs(hideBin(process.argv)).command({
             type: 'string'
         }
     },
-    handler:function(argv){
-        console.log('Reading notes ' +  JSON.stringify(argv))
-    }
+    handler:(argv) => readNote(argv.title)
 }).parse()
 
 
@@ -84,7 +78,5 @@ yargs(hideBin(process.argv)).command({
 yargs(hideBin(process.argv)).command({
     command:'list',
     describe:'Listing command',
-    handler:function(argv){
-        console.log('Listing notes ')
-    }
+    handler:listNotes
 }).parse()
