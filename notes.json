@@ -1,1 +1,1 @@
-{"second note":{"title":"second note","body":"frontend development"}}
+{"second note":{"title":"second note","body":"frontend development"},"third note' --body='becomming fullstack'\nnode inspect app.js add --title=third":{"title":"third note' --body='becomming fullstack'\nnode inspect app.js add --title=third","body":"becomming fullstack"}}

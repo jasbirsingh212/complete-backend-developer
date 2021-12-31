@@ -37,6 +37,8 @@ const addNote = ( title, body ) => {
     const notes = getAllNotes();
     const exists = existsOrNot(notes, title);
 
+    debugger
+
     if(exists){
         errorMsg(`Note aleary exists with title: ${title}`);
         return 
