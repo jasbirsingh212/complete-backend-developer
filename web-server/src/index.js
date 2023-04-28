@@ -1,10 +1,10 @@
-const path = require('path');
+const path = require("path");
 const express = require("express");
 require("dotenv").config();
-const hbs = require('hbs')
+const hbs = require("hbs");
 const app = express();
 
-const pathToPublicDir = path.join(__dirname, '../public');
+const pathToPublicDir = path.join(__dirname, "../public");
 // app.set("view engine", "hbs");
 
 app.set("view engine", "html");
@@ -46,7 +46,7 @@ app.get(`/about`, (req, res) => {
 
 app.get(`/help`, (req, res) => {
   res.render("help", {
-    textHelp: "Get Help Here: 👌"
+    textHelp: "Get Help Here: 👌",
   });
 });
 
